@@ -12,7 +12,7 @@ resource "azurerm_kubernetes_cluster" "myaks" {
   location            = azurerm_resource_group.myrg.location
   resource_group_name = azurerm_resource_group.myrg.name
   dns_prefix          = "${var.prefix}-k8sup"
-  kubernetes_version  = "1.19.7"
+  kubernetes_version  = "1.26.0"
 
   default_node_pool {
     name       = "default"
@@ -23,26 +23,10 @@ resource "azurerm_kubernetes_cluster" "myaks" {
   identity {
     type = "SystemAssigned"
   }
-
-  addon_profile {
-    aci_connector_linux {
-      enabled = false
-    }
-
-    azure_policy {
-      enabled = false
-    }
-
-    http_application_routing {
-      enabled = false
-    }
-
-    kube_dashboard {
-      enabled = false
-    }
-
-    oms_agent {
-      enabled = false
-    }
-  }
 }
+
+
+    
+    
+  
+
